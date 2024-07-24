@@ -1,0 +1,361 @@
+@font-face {
+	font-family: 'Osvald';
+	src: url('../fonts/Oswald-VariableFont_wght.ttf');                                    /* IE9 Compat Modes */
+	src: url('../fonts/Oswald-VariableFont_wght.ttf')  format('truetype');                /* Старые Safari, Android, iOS */
+	font-weight: normal;
+	font-style: normal;
+ }
+
+
+/* Обнуление */
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none !important;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	font-size: inherit;
+	text-align: center;
+	font-family: 'Osvald';
+}
+html,
+body {
+	height: 100%;
+	line-height: 1;
+	font-size: 14px;
+	background-color: #333;
+	font-family: 'Osvald', Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper {
+	min-height: 100%;
+	opacity: 0;
+	transition: opacity .8s ease 0;
+}
+
+.wrapper._loader {
+	opacity: 1;
+}
+
+.wrapper._loader .header {
+	transition: transform .8s ease .8s;
+	transform: translate(0, 0);
+}
+
+.wrapper._loader .page__pagination {
+	transform: translate(0, -50%);
+	opacity: 1;
+	visibility: visible;
+	transition: transform .6s ease .8s;
+}
+
+.wrapper._free .page__pagination {
+	transition: all .3s ease 0;
+	transform: translate(50px, -50%);
+	opacity: 0;
+}
+/* ---------------------------- */
+
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	padding: 0 20px;
+	transform: translate(0, -100%);
+	background-color: rgba(0, 0, 0, 0.5);
+	
+}
+.header__menu {
+	line-height: 35px;
+}
+.menu {
+	display: flex;
+	min-height: 80px;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.logo img{
+	height: 35px;
+}
+
+.logo img:hover{
+	filter: drop-shadow(0 0 3px #f5e614);
+}
+
+.menu__link {
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	transition: color .3s ease 0;
+	margin: 0 10px;
+	padding-top: 35px;
+}
+.phone{
+	/* position: absolute;
+	right: 15px; */
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	transition: color .3s ease 0;
+	/* margin: 0 20px 0 0; */
+}
+.menu__link._active, .menu__link:hover, .phone:hover {
+	color: #f5e614;
+	text-shadow: 1px 1px 5px #000; /* Параметры тени */
+}
+.viber{
+	border-radius: 50%;
+}
+
+.viber:hover{
+	box-shadow: -5px 1px 15px #f5e614;
+}
+/* ---------------------------- */
+.page {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.page__wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	min-width: 0;
+}
+.page__screen {
+}
+
+.page__pagination {
+	position: absolute;
+	top: 50%;
+	right: 30px;
+	transform: translate(80px, -50%);
+	opacity: 0;
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.page__bullet {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.5);
+	margin: 10px 0;
+	border-radius: 50%;
+	transition: background-color .3s ease 0;
+}
+
+.page__bullet_active {
+	background-color: #fff;
+}
+
+.page__scroll {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 14px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page__drag-scroll {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 14px;
+	background-color: rgba(245, 230, 20, 0.65);;
+	cursor: pointer;
+}
+/* ---------------------------- */
+.screen {
+	flex: 1 0 100%;
+	position: relative;
+}
+.screen__content {
+	padding: 100px 25px 25px 25px;
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.screen__title {
+	font-size: 50px;
+	color: #fff;
+	margin: 0 0 30px 0;
+	display: inline-block;
+
+}
+.screen__title_bg {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 15px;
+}
+.screen__body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.screen__image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.screen__image img{
+	object-fit: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.screen__text {
+	font-size: 20px;
+	line-height: 130%;
+	color: #fff;
+}
+
+.screen__text p{
+	margin: 0 0 20px 0;
+}
+
+.screen__text p:last-child{
+	margin-bottom: 0;
+}
+
+.card{
+	max-width: 100%;
+	margin: 25px;
+}
+
+.card img{
+	max-height: 40vh;
+	width: 100%;
+}
+.screen__copyright {
+	position: absolute;
+	bottom: 5px;
+	right: 25px;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 10px;
+}
+.screen__copyright a{
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.5);
+}
+.screen__copyright a:hover,
+.screen__copyright a:focus{
+	font-size: 10px;
+	color: rgba(255, 255, 255, 1);
+}
+.mycarousel{
+	max-height: 300px;
+}
+.carousel-control-next {
+    right: 0;
+}
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 8rem;
+  height: 8rem;
+}
+
+/* text in carousel */
+.carousel-inner .display-5,
+.carousel-inner .display-6
+{
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(186, 180, 102, 0.75), 0 0 10px rgba(255,243,74,0.75), 1px 1px 2px #000;
+}
+
+.progress {
+  height: 1rem;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+}
+.display-5 {
+	font-size: 3em;
+	color: #eee;
+	text-shadow: 0 0 15px rgba(186, 180, 102, 0.75), 0 0 10px rgba(255,243,74,0.75), 0 0 2px #000;
+}
+
+.display-6 {
+	font-size: 2em;
+	color: #eee;
+	text-shadow: 0 0 15px rgba(255,243,74,0.75), 0 0 10px rgba(186, 180, 102, 0.75), 0 0 2px #000;
+}
+@media (max-width: 767px) {
+	.menu__link {
+		font-size: 12px;
+		margin: 0 10px 0 0;
+	}
+	.phone{
+		font-size: 16px;
+	}
+	.screen__title {
+		font-size: 35px;
+	}
+	.screen__text {
+		font-size: 16px;
+	}
+	.page__pagination {
+		right: 20px;
+	}
+}
